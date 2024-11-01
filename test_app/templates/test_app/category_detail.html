@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <a href="{% url 'categories' %}">categories</a>
+</div>
+
+<h1>Категория: {{ category.name }}</h1>
+
+<h2>Посты в категории</h2>
+
+{% for post in posts %}
+
+<div>
+    <h2>{{ post.title }}</h2>
+    <a href="{% url 'post_detail' post.id %}">Подробнее</a>
+</div>
+
+{% endfor %}
+
+</body>
+</html>

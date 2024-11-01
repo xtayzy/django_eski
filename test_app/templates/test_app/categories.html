@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <a href="{% url 'index' %}">posts</a>
+</div>
+
+<h1>Категории</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Добавить категорию</button>
+</form>
+
+
+{% for category in categories %}
+
+    <div>
+        <a href="{% url 'category_detail' category.id %}">{{ category.name }}</a>
+    </div>
+
+{% endfor %}
+
+</body>
+</html>
